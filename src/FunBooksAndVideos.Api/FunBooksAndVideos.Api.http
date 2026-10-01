@@ -1,0 +1,26 @@
+@baseUrl = https://localhost:7180
+
+### Catalogue
+GET {{baseUrl}}/api/products
+
+### Customer 4567890 (no membership yet)
+GET {{baseUrl}}/api/customers/4567890
+
+### Example order from the brief: video + book + Book Club membership = 48.50
+POST {{baseUrl}}/api/purchase-orders
+Content-Type: application/json
+
+{
+  "customerId": 4567890,
+  "items": [
+    { "productId": 1, "quantity": 1 },
+    { "productId": 2, "quantity": 1 },
+    { "productId": 3, "quantity": 1 }
+  ]
+}
+
+### Order 3344656
+GET {{baseUrl}}/api/purchase-orders/3344656
+
+### Shipping slips for order 3344656
+GET {{baseUrl}}/api/purchase-orders/3344656/shipping-slips
